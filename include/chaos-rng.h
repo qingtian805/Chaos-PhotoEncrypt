@@ -13,19 +13,36 @@
 
 namespace chaos{
     class chaos_rng{
+    public:
+        chaos_rng(void);
+        chaos_rng(const double lambda, const double x);
+        chaos_rng(const chaos_fpoint &lambda, const chaos_fpoint &x);
+
+        //lambda设置函数
+        void set_lambda(const double &lambda);
+        //lambda设置函数
+        void set_lambda(const chaos_fpoint &lambda);
+        //x设置函数
+        void set_x(const double &x);
+        //x设置函数
+        void set_x(const chaos_fpoint &x);
+
+        //内部函数，计算触发函数，计算下一个向量
+        void inline __cal_next(void);
+        
+        //获取当前向量
+        chaos_fpoint get_status(void);
+        //获取当前向量
+        long long get_status_c(void);
+        
+        //计算并获取下一向量，以内部类型返回
+        chaos_fpoint get_next_status(void);
+        //计算并获取下一向量，以c++类型返回
+        long long get_next_status_c(void);
+
     private:
         chaos_fpoint lambda;
         chaos_fpoint x;
-
-    public:
-        chaos_rng(void);
-        chaos_rng(double lambda, double x);
-        chaos_rng(const chaos_fpoint &lambda, const chaos_fpoint &x);
-
-        void set_lambda(double lambda);
-        void set_lambda(chaos_fpoint lambda);
-        void set_x(double x);
-        void set_x(chaos_fpoint x);
     };
 }
 
