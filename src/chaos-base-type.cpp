@@ -32,9 +32,9 @@ chaos_fpoint chaos_fpoint::operator-(const chaos_fpoint &a)
 chaos_fpoint chaos_fpoint::operator*(const chaos_fpoint &a)
 {
     unsigned long long tmp1 = this->fpoint >> 30;
-    unsigned long long tmp2 = this->fpoint % 0x3FFFFFFF;
+    unsigned long long tmp2 = this->fpoint & 0x3FFFFFFF;
     unsigned long long tmp3 = a.fpoint >> 30;
-    unsigned long long tmp4 = a.fpoint % 0x3FFFFFFF;
+    unsigned long long tmp4 = a.fpoint & 0x3FFFFFFF;
     unsigned long long res;
 
     res = tmp1 * tmp3;
