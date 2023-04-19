@@ -38,9 +38,16 @@ chaos_fpoint chaos_fpoint::operator*(const chaos_fpoint &a)
     unsigned long long res;
 
     res = tmp1 * tmp3;
-    res += tmp1 * tmp4 >> 30;
-    res += tmp2 * tmp3 >> 30;
-    res += tmp2 * tmp4 >> 60;
+    res += tmp1 * tmp4 + tmp2 * tmp3 >> 30;
+    //res += tmp2 * tmp4 >> 60;
+
+    // asm(
+    //     "mulq %1, %2;\n
+    //      movq rdx, %0"
+    //     :"=r"(res)
+    //     :"r"(this->fpoint), "r"(a.fpoint)
+    //     :"eax", "edx"
+    // );
 
     return chaos_fpoint(res);
 }
@@ -65,7 +72,7 @@ bool chaos_fpoint::operator<=(const chaos_fpoint &a)
     return this->fpoint <= a.fpoint;
 }
 
-long long chaos_fpoint::fpoint_to_c(void)
+unsigned long long chaos_fpoint::fpoint_to_c(void)
 {
     return this->fpoint;
 }

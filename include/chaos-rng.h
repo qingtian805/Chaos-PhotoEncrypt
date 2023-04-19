@@ -33,12 +33,12 @@ namespace chaos{
         //获取当前向量
         chaos_fpoint get_status(void);
         //获取当前向量
-        long long get_status_c(void);
+        unsigned long long get_status_c(void);
         
         //计算并获取下一向量，以内部类型返回
         chaos_fpoint get_next_status(void);
         //计算并获取下一向量，以c++类型返回
-        long long get_next_status_c(void);
+        unsigned long long get_next_status_c(void);
 
     private:
         chaos_fpoint lambda;

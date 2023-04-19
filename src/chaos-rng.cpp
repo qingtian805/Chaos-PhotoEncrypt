@@ -61,7 +61,7 @@ chaos_fpoint chaos_rng::get_status(void)
     return this->x;
 }
 
-long long chaos_rng::get_status_c(void)
+unsigned long long chaos_rng::get_status_c(void)
 {
     return this->x.fpoint_to_c();
 }
@@ -72,7 +72,7 @@ chaos_fpoint chaos_rng::get_next_status(void)
     return this->x;
 }
 
-long long chaos_rng::get_next_status_c(void)
+unsigned long long chaos_rng::get_next_status_c(void)
 {
     this->__cal_next();
     return this->x.fpoint_to_c();

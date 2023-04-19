@@ -28,7 +28,7 @@ namespace chaos{
         bool operator<(const chaos_fpoint &a);
         bool operator<=(const chaos_fpoint &a);
 
-        long long fpoint_to_c(void);
+        unsigned long long fpoint_to_c(void);
 
     private:
         unsigned long long fpoint;
