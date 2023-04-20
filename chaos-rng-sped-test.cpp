@@ -12,8 +12,9 @@ int main(void)
     std::chrono::time_point<std::chrono::system_clock> start, end;
     std::chrono::microseconds period;
 
+    //4K 分辨率 4096*3112=12746752 < 13000000
     start = std::chrono::system_clock::now();
-    for(i = 0; i < 6220800; i++){
+    for(i = 0; i < 13000000; i++){ 
         internal = rng.get_next_status_c();
     }
     end = std::chrono::system_clock::now();
@@ -23,7 +24,7 @@ int main(void)
     std::cout << period.count() << std::endl;
 
     start = std::chrono::system_clock::now();
-    for(i = 0; i < 6220800; i++){
+    for(i = 0; i < 13000000; i++){
         x = lamb * x * (1 - x);
     }
     end = std::chrono::system_clock::now();

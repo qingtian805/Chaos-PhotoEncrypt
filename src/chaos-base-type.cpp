@@ -49,7 +49,7 @@ chaos_fpoint chaos_fpoint::operator*(const chaos_fpoint &a)
     );
 
     res0 = res0 << 4;
-    res0 += res1 >> 60;
+    res0 += res1 >> 60 & 0xF;
     return chaos_fpoint(res0);
 }
 
