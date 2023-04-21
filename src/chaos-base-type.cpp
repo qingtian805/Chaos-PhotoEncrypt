@@ -33,23 +33,19 @@ chaos_fpoint chaos_fpoint::operator*(const chaos_fpoint &a)
 {
     unsigned long long res0, res1;
 
-    //res = tmp1 * tmp3;
-    //res += tmp1 * tmp4 + tmp2 * tmp3 >> 30;
-    //res += tmp2 * tmp4 >> 60;
+    res0 = this->fpoint << 2;
+    res1 = a.fpoint << 2;
 
     asm(
-        "movq %2, %%rax;\n"
-        "movq %3, %%rdx;\n"
+        "movq %1, %%rax;\n"
+        "movq %2, %%rdx;\n"
         "mulq %%rdx; \n"
         "movq %%rdx, %0\n"
-        "movq %%rax, %1"
-        :"=r"(res0), "=r"(res1)
-        :"r"(this->fpoint), "r"(a.fpoint)
+        :"=r"(res0)
+        :"r"(res0), "r"(res1)
         :"%rax", "%rdx"
     );
 
-    res0 = res0 << 4;
-    res0 += res1 >> 60 & 0xF;
     return chaos_fpoint(res0);
 }
 

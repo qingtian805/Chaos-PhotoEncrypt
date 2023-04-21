@@ -19,7 +19,8 @@ add_executable(type-bit type-bit.cpp)
 
 add_executable(chaos-bt-test chaos-bt-test.cpp ${SRC_FILES}) #基本类型测试
 add_executable(chaos-rng-perc-test chaos-rng-perc-test.cpp ${SRC_FILES}) #随机数生成器精度测试
-add_executable(chaos-rng-sped-test chaos-rng-sped-test.cpp ${SRC_FILES}) #随机数生成器精度测试
+add_executable(chaos-rng-sped-test chaos-rng-sped-test.cpp ${SRC_FILES}) #随机数生成器速度测试
+add_executable(chaos-rng-rand-test chaos-rng-rand-test.cpp ${SRC_FILES}) #随机数生成器随机性测试
 
 #target_link_libraries(my-sm2-gektest miracl)
 #target_link_libraries(my-sm2-enctest miracl)
