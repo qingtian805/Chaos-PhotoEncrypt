@@ -7,8 +7,8 @@
  * XXXX.XXX...XXXX，整数部分占4位，小数部分占60位
 */
 
-#ifndef CHAOS_BASE_TYPE
-#define CHAOS_BASE_TYPE
+#ifndef CHAOS_BASE_TYPE_H
+#define CHAOS_BASE_TYPE_H
 
 #include<iostream>
 

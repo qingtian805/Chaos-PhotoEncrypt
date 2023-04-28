@@ -8,14 +8,15 @@ int main(void)
     chaos::chaos_rng rng = chaos::chaos_rng(3.7, 0.25);
     chaos::chaos_fpoint fpoint;
     unsigned long long internal;
+
+    rng.spara_init();
     
     std::cout << "time,float,internal" << std::endl;
 
-    //4K 分辨率 4096*3112=12746752 < 13000000
-    for(i = 0; i < 10000; i++){ 
+    for(i = 0; i < 10000; i++){ //生成1万个随机数，输出为csv格式
         fpoint = rng.get_next_status();
         internal = fpoint.fpoint_to_c();
-        std::cout << std::setprecision(10) << i << "," << fpoint << "," << internal << std::endl;
+        std::cout << std::setprecision(10) << i << "," << fpoint << "," << (internal & 0xFFFFFFFFFFFF) << std::endl;
     }
 
     return 0;

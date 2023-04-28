@@ -1,5 +1,6 @@
 #include<iostream>
 #include"chaos-rng.h"
+#include <cstdarg>
 
 using namespace chaos;
 
@@ -30,6 +31,12 @@ chaos_rng::chaos_rng(const chaos_fpoint &lambda, const chaos_fpoint &x)
     this->x = x;
 }
 
+void chaos_rng::spara_init(void)
+{
+    this->__cal_next();
+    this->__cal_next();
+}
+
 void chaos_rng::set_lambda(const double &lambda)
 {
     this->lambda = chaos_fpoint(lambda);
@@ -50,7 +57,7 @@ void chaos_rng::set_x(const chaos_fpoint &x)
     this->x = x;
 }
 
-void chaos_rng::__cal_next(void)
+inline void chaos_rng::__cal_next(void)
 {
     chaos_fpoint one = chaos_fpoint(1.0);
     this->x = this->lambda * this->x * (one - this->x);
@@ -76,4 +83,29 @@ unsigned long long chaos_rng::get_next_status_c(void)
 {
     this->__cal_next();
     return this->x.fpoint_to_c();
+}
+
+int chaos_rng::get_next_uchars(short num, ...)
+{
+    short i;
+    unsigned char *p;
+    va_list uchars;
+    va_start(uchars, num);
+    unsigned long long internal;
+
+    if(num > 7){
+        std::cout << "数组超限" << std::endl;
+        return -1;
+    }
+
+    this->__cal_next();
+    internal = this->x.fpoint_to_c();
+
+    for(i = 0; i < num; i++){
+        p = va_arg(uchars, unsigned char*);
+        *p = internal & 0xFF;
+        internal >>= 8;
+    }
+
+    return 0;
 }
