@@ -33,6 +33,5 @@ def draw_functest():
 
     fp.close()
 
-
 draw_rand10000()
 #draw_functest()
