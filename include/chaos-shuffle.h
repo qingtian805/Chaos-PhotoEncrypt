@@ -1,7 +1,7 @@
 #ifndef CHAOS_SHUFFLE_H
 #define CHAOS_SHUFFLE_H
 
-#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
 #include <chaos-rng.h>
 
 using namespace cv;

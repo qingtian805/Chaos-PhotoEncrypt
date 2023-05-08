@@ -1,4 +1,4 @@
-#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
 #include <chaos-shuffle.h>
 #include <chaos-rng.h>
 
