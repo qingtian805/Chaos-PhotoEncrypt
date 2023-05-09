@@ -35,6 +35,7 @@ void chaos_rng::spara_init(void)
 {
     this->__cal_next();
     this->__cal_next();
+    this->__cal_next();
 }
 
 void chaos_rng::set_lambda(const double &lambda)

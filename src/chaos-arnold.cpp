@@ -31,9 +31,34 @@ void chaos_arnold::arnold(Mat &image, Mat &out)
 
 void chaos_arnold::arnold_n(Mat &image, Mat &out, int t)
 {
-    arnold(image, out);
-    for(int i = 1; i < t; i++)
-        arnold(out, out);
+    int i;
+    Mat tmp;
+
+    if(t < 1)
+        return;
+
+    image.copyTo(tmp);
+
+    if(tmp.empty()){
+        std::cout << "Not enough memory" << std::endl;
+        return;
+    }
+
+    i = 0;
+    while(i < t){
+        arnold(tmp, out);
+        i++;
+        if(i > t){
+            goto ODD_OUT;
+        }
+        arnold(out, tmp);
+        i++;
+    }
+
+    out.release();
+    out = tmp;
+ODD_OUT:
+    return;
 }
 
 void chaos_arnold::rarnold(Mat &image, Mat &out)
@@ -62,11 +87,36 @@ void chaos_arnold::rarnold(Mat &image, Mat &out)
     }
 }
 
-void chaos_arnold::rarnold_n(Mat &image, Mat &out, int n)
+void chaos_arnold::rarnold_n(Mat &image, Mat &out, int t)
 {
-    rarnold(image, out);
-    for(int i = 1; i < n; i++)
-        rarnold(out, out);
+    int i;
+    Mat tmp;
+
+    if(t < 1)
+        return;
+
+    image.copyTo(tmp);
+
+    if(tmp.empty()){
+        std::cout << "Not enough memory" << std::endl;
+        return;
+    }
+
+    i = 0;
+    while(i < t){
+        rarnold(tmp, out);
+        i++;
+        if(i > t){
+            goto ODD_OUT;
+        }
+        rarnold(out, tmp);
+        i++;
+    }
+
+    out.release();
+    out = tmp;
+ODD_OUT:
+    return;
 }
 
 int chaos_arnold::__gcd(const int _a, const int _b)
