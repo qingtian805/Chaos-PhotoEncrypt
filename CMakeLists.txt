@@ -31,7 +31,8 @@ add_executable(type-bit type-bit.cpp)
 add_executable(chaos-bt-test chaos-bt-test.cpp ${SRC_RNG}) #基本类型测试
 add_executable(chaos-rng-perc-test chaos-rng-perc-test.cpp ${SRC_RNG}) #随机数生成器精度测试
 add_executable(chaos-rng-sped-test chaos-rng-sped-test.cpp ${SRC_RNG}) #随机数生成器速度测试
-add_executable(chaos-rng-rand-test chaos-rng-rand-test.cpp ${SRC_RNG}) #随机数生成器随机性测试
+add_executable(chaos-rng-rand-test chaos-rng-rand-test.cpp ${SRC_RNG}) #随机数生成器随机性测试，内部测试
+add_executable(chaos-rng-rand-test2 chaos-rng-rand-test2.cpp ${SRC_RNG}) #随机数生成器随机性测试，二进制测试接口
 add_executable(chaos-rng-func-test chaos-rng-func-test.cpp ${SRC_RNG}) #随机数生成器整合功能测试
 add_executable(chaos-enc-test chaos-enc-test.cpp ${SRC_FILES} ${SRC_RNG} ${SRC_ARNOLD})
 add_executable(chaos-dec-test chaos-dec-test.cpp ${SRC_FILES} ${SRC_RNG} ${SRC_ARNOLD})
