@@ -16,7 +16,7 @@ int main(void)
 
     for(i = 0; i < 10000; i++){ //生成1万个随机数，输出为csv格式
         fpoint = rng.get_next_status();
-        internal = fpoint.fpoint_to_c() ^ 0xFFFFFFFFFFFF;
+        internal = fpoint.fpoint_to_c() & 0xFFFFFFFFFFFF;
         std::cout << std::bitset<48>(internal);
     }
 

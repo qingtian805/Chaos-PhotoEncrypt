@@ -24,14 +24,15 @@ def draw_functest():
 
     rands = pandas.read_csv(fp)
 
-    plt.xlabel("time")
-    plt.ylabel("uchar")
 
     for i in ("1", "2", "3", "4", "5", "6", "7"):
+        plt.title("rand" + i)
+        plt.xlabel("time")
+        plt.ylabel("data")
         plt.scatter(rands["time"], rands[i])
         plt.show()
 
     fp.close()
 
-draw_rand10000()
-#draw_functest()
+#draw_rand10000()
+draw_functest()
