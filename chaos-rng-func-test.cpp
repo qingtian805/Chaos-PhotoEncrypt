@@ -1,6 +1,6 @@
 #include <iostream>
 #include "chaos-rng.h"
-#include "chaos-shuffle.h"
+//#include "chaos-shuffle.h"
 
 using namespace chaos;
 

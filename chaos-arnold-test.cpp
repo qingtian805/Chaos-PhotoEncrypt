@@ -52,5 +52,11 @@ int main(void)
     imshow("Display Image", out);
     waitKey(0);
 
+    chaos::chaos_arnold::rarnold_n(out, outd, 3);
+
+    namedWindow("Display Image", WINDOW_AUTOSIZE );
+    imshow("Display Image", outd);
+    waitKey(0);
+
     return 0;
 }
