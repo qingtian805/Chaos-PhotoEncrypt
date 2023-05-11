@@ -139,13 +139,10 @@ int chaos_arnold::__gcd(const int _a, const int _b)
 
 int chaos_arnold::__mod(const int _a, const int mod)
 {
-    int a = _a;
+    int a = _a % mod;
 
-    if(_a > 0)
-        return _a % mod;
+    if(a >= 0)
+        return a;
 
-    while(a < 0)
-        a += mod;
-
-    return a;
+    return a + mod;
 }

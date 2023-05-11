@@ -1,4 +1,5 @@
-#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/imgcodecs.hpp>
 #include <chaos-ranenc.h>
 #include <chaos-arnold.h>
 #include <chaos-rng.h>
@@ -6,12 +7,18 @@
 
 using namespace cv;
 using namespace chaos;
-int main(void)
+int main(int argc, char** argv)
 {
     Mat image, out;
     chaos_rng rng = chaos_rng(3.99, 0.25);
 
-    image = imread("/home/kevin/git-chaos-cpp/test.jpg");
+    if (argc != 2){
+        std::cout << "usage: DisplayImage.out <Image_Path>" << std::endl;
+        return 0;
+    }
+
+    image = imread(argv[1]);
+    
     if ( !image.data )
     {
         printf("No image data \n");
@@ -29,9 +36,9 @@ int main(void)
 
     chaos::chaos_ranenc::rand_enc(out, rng);
 
-    namedWindow("Display Image", WINDOW_AUTOSIZE );
-    imshow("Display Image", out);
-    waitKey(0);
+    //namedWindow("Display Image", WINDOW_AUTOSIZE );
+    //imshow("Display Image", out);
+    //waitKey(0);
 
     imwrite("/home/kevin/git-chaos-cpp/teste.png", out);
 
