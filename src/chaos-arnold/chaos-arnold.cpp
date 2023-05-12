@@ -124,14 +124,12 @@ int chaos_arnold::__gcd(const int _a, const int _b)
     int a = _a;
     int b = _b;
     int tmp;
-
+    
     while(b){
-        if(a < b){
-            tmp = a;
-            a = b;
-            b = tmp;
-        }
-        a = a - b;
+        a %= b;
+        tmp = a;
+        a = b;
+        b = tmp;
     }
 
     return a;
