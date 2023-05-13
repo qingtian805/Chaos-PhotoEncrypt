@@ -36,6 +36,7 @@ chaos_fpoint chaos_fpoint::operator*(const chaos_fpoint &a)
     res0 = this->fpoint << 2;
     res1 = a.fpoint << 2;
 
+    //计算乘法结果，取128位的高64位
     asm(//op src, dst
         "movq %1, %%rax;\n"
         "movq %2, %%rdx;\n"

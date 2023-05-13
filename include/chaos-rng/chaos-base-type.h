@@ -27,7 +27,7 @@ namespace chaos{
         bool operator>=(const chaos_fpoint &a);
         bool operator<(const chaos_fpoint &a);
         bool operator<=(const chaos_fpoint &a);
-
+        //可以将类内部类型返回，即超长整形
         unsigned long long fpoint_to_c(void);
 
     private:

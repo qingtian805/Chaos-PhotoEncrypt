@@ -44,7 +44,7 @@ int main(void)
     imshow("Display Image", outd);
     waitKey(0);
 
-    chaos::chaos_arnold::arnold_n(image, out, 3);
+    chaos::chaos_arnold::arnold_n(image, out, 2);
 
     //std::cout << out << std::endl;
 
@@ -52,7 +52,7 @@ int main(void)
     imshow("Display Image", out);
     waitKey(0);
 
-    chaos::chaos_arnold::rarnold_n(out, outd, 3);
+    chaos::chaos_arnold::rarnold_n(out, outd, 2);
 
     namedWindow("Display Image", WINDOW_AUTOSIZE );
     imshow("Display Image", outd);

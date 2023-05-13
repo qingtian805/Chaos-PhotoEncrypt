@@ -12,6 +12,7 @@ chaos_rng::chaos_rng(void)
 
 chaos_rng::chaos_rng(double lambda, double x)
 {
+    //检查参数合法性
     if (lambda < 3.57 || lambda > 4){
         std::cout << "Wrong num of lambda, restoring default" << std::endl;
         lambda = 3.7;

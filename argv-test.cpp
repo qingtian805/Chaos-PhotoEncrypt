@@ -2,6 +2,8 @@
 #include<iomanip>
 #include <cstdarg>
 
+//设计变长函数的实验文件，是哟你cstdarg库
+
 int v_arg(int num, ...)
 {
     int i;
