@@ -145,9 +145,9 @@ int chaos_arnold::__mod(const int _a, const int mod)
 {
     int a = _a % mod;
 
-    if(a >= 0)
-        return a;
-    
     //负数情况修正
-    return a + mod;
+    if(a < 0)
+        a += mod;
+
+    return a;
 }
