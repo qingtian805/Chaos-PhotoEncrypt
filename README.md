@@ -5,7 +5,7 @@
 
 ## 第三方库依赖(Required Librarys)
 
-图像处理使用OpenCV（编写时版本为4.7.0）。
+图像处理使用OpenCV 4.7.0（without opencv-contrib）。
 
 ## 算法介绍(Introduction)
 
