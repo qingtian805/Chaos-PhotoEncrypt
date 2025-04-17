@@ -12,8 +12,8 @@ int main(int argc, char** argv)
     Mat image, out;
     chaos_rng rng = chaos_rng(3.99, 0.25);
 
-    if (argc != 2){
-        std::cout << "usage: DisplayImage.out <Image_Path>" << std::endl;
+    if (argc != 3){
+        std::cout << "usage: DisplayImage.out <Enc_Image_Path> <Dec_Image_Path>" << std::endl;
         return 0;
     }
 
@@ -40,7 +40,7 @@ int main(int argc, char** argv)
     //imshow("Display Image", out);
     //waitKey(0);
 
-    imwrite("/home/kevin/git-chaos-cpp/testd.png", out);
+    imwrite(argv[2], out);
 
     return 0;
 }

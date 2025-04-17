@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 4.0.0)
 
 project(chaos-photo-enc VERSION 0.0.0)
 
@@ -8,7 +8,8 @@ find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS} 
                     ${PROJECT_SOURCE_DIR}/include 
                     ${PROJECT_SOURCE_DIR}/include/chaos-rng
-                    ${PROJECT_SOURCE_DIR}/include/chaos-arnold)# -I
+                    ${PROJECT_SOURCE_DIR}/include/chaos-arnold
+                    ${PROJECT_SOURCE_DIR}/include/chaos-arnold-next)# -I
 
 set(CMAKE_CXX_FLAGS_DEBUG ${CMAKE_CXX_FLAGS} -g) #DEBUG
 set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS} -O2) #RELEASE
@@ -23,6 +24,9 @@ file(GLOB SRC_RNG
 file(GLOB SRC_ARNOLD
     ${PROJECT_SOURCE_DIR}/src/chaos-arnold/*.cpp 
     ${PROJECT_SOURCE_DIR}/src/chaos-arnold/*.c)
+file(GLOB SRC_ARNOLD_NEXT
+    ${PROJECT_SOURCE_DIR}/src/chaos-arnold-next/*.cpp
+    ${PROJECT_SOURCE_DIR}/src/chaos-arnold-next/*.c)
 
 #一些小程序
 add_executable(fpoint-checker fpoint-checker.cpp)
@@ -39,6 +43,8 @@ add_executable(chaos-dec-test chaos-dec-test.cpp ${SRC_FILES} ${SRC_RNG} ${SRC_A
 add_executable(chaos-arnold-test chaos-arnold-test.cpp ${SRC_ARNOLD})
 add_executable(chaos-ranenc-test chaos-ranenc-test.cpp ${SRC_FILES} ${SRC_RNG})
 
+add_executable(chaos-arnold-next-test chaos-arnold-next-test.cpp ${SRC_ARNOLD_NEXT})
+
 #一些技术测试
 add_executable(argv-test argv-test.cpp)
 add_executable(opencv-test opencv-test.cpp)
@@ -50,3 +56,5 @@ target_link_libraries(opencv-test ${OpenCV_LIBS})
 target_link_libraries(opencv-test2 ${OpenCV_LIBS})
 target_link_libraries(chaos-arnold-test ${OpenCV_LIBS})
 target_link_libraries(chaos-ranenc-test ${OpenCV_LIBS})
+
+target_link_libraries(chaos-arnold-next-test ${OpenCV_LIBS})
